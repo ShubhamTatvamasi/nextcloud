@@ -13,6 +13,8 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: nextcloud
+  annotations:
+    nginx.org/websocket-services: nextcloud
 spec:
   tls:
     - hosts:
