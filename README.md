@@ -14,18 +14,18 @@ kind: Ingress
 metadata:
   name: nextcloud
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
     nginx.org/websocket-services: nextcloud
 spec:
   tls:
     - hosts:
       - nextcloud.k8s.shubhamtatvamasi.com
-      secretName: letsencrypt
+      secretName: letsencrypt-nextcloud
   rules:
     - host: nextcloud.k8s.shubhamtatvamasi.com
       http:
         paths:
-        - path: /
-          backend:
+        - backend:
             serviceName: nextcloud
             servicePort: 80
 EOF
