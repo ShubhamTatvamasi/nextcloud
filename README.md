@@ -47,6 +47,7 @@ helm repo update
 install nextcloud
 ```bash
 helm install nextcloud nextcloud/nextcloud \
+  --set nextcloud.host=nextcloud.k8s.shubhamtatvamasi.com \
   --set persistence.enabled=true \
   --set livenessProbe.enabled=false \
   --set readinessProbe.enabled=false
