@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  nextcloud:
+    image: nextcloud
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - nextcloud:/var/www/html
+
+volumes:
+  nextcloud:
