@@ -1,5 +1,10 @@
 # nextcloud
 
+add following line in `config/config.php` for https connection: 
+```
+overwriteprotocol' => 'https',
+```
+
 Install nextcloud:
 ```bash
 kubectl create deployment nextcloud --image=nextcloud
