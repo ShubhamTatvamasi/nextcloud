@@ -4,10 +4,21 @@ services:
   nextcloud:
     image: nextcloud
     restart: always
-    ports:
-      - 80:80
     volumes:
       - nextcloud:/var/www/html
 
+  caddy:
+    image: caddy
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+
 volumes:
-  nextcloud:
+  nextcloud: {}
+  caddy_data: {}
+  caddy_config: {}
