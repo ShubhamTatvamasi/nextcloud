@@ -5,8 +5,27 @@ services:
     image: nextcloud
     container_name: nextcloud
     restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: nextcloud
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: nextcloud
     volumes:
       - nextcloud:/var/www/html
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_USER: nextcloud
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: nextcloud
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - mysql:/var/lib/mysql
 
   caddy:
     image: caddy
@@ -24,3 +43,4 @@ volumes:
   caddy_config:
   caddy_data:
   nextcloud:
+  mysql:
