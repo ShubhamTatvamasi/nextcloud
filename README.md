@@ -2,7 +2,7 @@
 
 add following line in `config/config.php` for https connection: 
 ```
-overwriteprotocol' => 'https',
+  'overwriteprotocol' => 'https',
 ```
 
 Install nextcloud:
