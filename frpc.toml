@@ -1,0 +1,14 @@
+serverAddr = "nextcloud.example.com"
+serverPort = 7000
+
+[[proxies]]
+name = "nextcloud_example_com_http"
+type = "http"
+localPort = 80
+customDomains = ["nextcloud.example.com"]
+
+[[proxies]]
+name = "nextcloud_example_com_https"
+type = "https"
+localPort = 443
+customDomains = ["nextcloud.example.com"]
